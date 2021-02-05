@@ -1,0 +1,129 @@
+body{
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/home_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+    padding: 0;   
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #2f2f2f; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+
+.container-fluid{
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar{
+    padding: 0;
+    width: 20%;
+    margin: 20px 0 0 20px;
+}
+
+.navbar-nav .active{
+    font-weight: bolder;
+    border-bottom: 1px solid black;
+}
+
+.navbar-toggler{
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.navbar-expand-md .navbar-collapse{
+    border-radius: 20px;
+}
+
+.navbar-toggler:focus{
+    outline: none;
+}
+
+.checkbox-button__label{
+    font-size: 1.1em;
+}
+    
+.mdesc{
+    color: lightgray;
+    font-size: 0.8em;
+}
+
+.main-content{
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+    padding: 20px;
+    width: 80%;
+}
+
+.btn-search-recipe{
+    box-shadow: 0 2px 20px 0 rgba(255, 238, 0, 0.6), 0 12px 20px 0 rgba(255, 238, 0, 0.5);
+    border-radius: 10px;
+    height: 100%;
+    transition: transform .2s;
+    transform: scale(1);
+    transition-duration: 0.3s;
+}
+
+.btn-search-recipe:hover{
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+}
+
+.recipe-input{
+    border: 0;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.recipe-input:focus{
+    outline: 0;
+}
+
+@media screen and (max-width: 767px){
+    .btn-search-recipe{
+        margin-top: 20px;
+        height: auto;
+        text-align: center;
+    }
+
+    .navbar{
+        padding: .5rem 1rem;
+        width: 100%;
+        margin: 0;
+    }
+
+    .container-fluid{
+        min-height: 90vh;
+    }
+
+    .navbar-nav .active{
+        border: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px){
+    .container-fluid{
+        min-height: 95vh;
+    }
+}

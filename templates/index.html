@@ -1,0 +1,424 @@
+{% extends 'base.html' %}
+
+{% block nav_list %}
+<ul class="navbar-nav">
+    <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content_body %}
+<div class="main-content text-light">
+    <blockquote class="text-center text-light" style="font-style: oblique;">"I like to cook food when I can. I find the
+        process of creating a home-cooked meal to be unwinding."</blockquote>
+    <h3 class="mt-3 text-light"> Search your Recipes here </h3>
+    <form action="/search-recipe" method="GET">
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-9 col-xs-10">
+                <input type="text" class="w-100 p-3 recipe-input" name="recipe_search_query" placeholder="Enter Dishes" required>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-12">
+                <button type="submit" class="w-100 btn btn-warning btn-search-recipe font-weight-bold" name="search-recipe" value="submit">
+                    <img src="https://img.icons8.com/ios-glyphs/24/000000/search.png" />
+                    Search Recipe
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <h4 style="text-decoration: underline;">ALSO</h4>
+        </div>
+        <div class="text-center">
+            <a class="btn-link h3" style="cursor: pointer;" data-toggle="collapse"
+                data-target="#advanced-search-div-collapse" aria-expanded="false"
+                aria-controls="advanced-search-div-collapse">Try Advance search &nbsp;
+                <img src="https://img.icons8.com/ios-filled/25/ffffff/expand-arrow--v1.png" />
+            </a>
+        </div>
+        <div id="advanced-search-div-collapse" class="collapse">
+            <br>
+            <div class="advanced-search">
+                <div class="row">
+                    <div class="col-md-6 col-12 p-2">
+                        <div class="bg-primary" style="border-radius: 20px;">
+                            <a class="w-100 btn btn-link text-light filter-btn font-weight-bold" data-toggle="collapse"
+                                data-target="#health-label-collapse" aria-expanded="false"
+                                aria-controls="health-label-collapse">
+                                <span class="float-left pl-2">Health Labels</span>
+                                <img src="https://img.icons8.com/ios-filled/25/ffffff/expand-arrow--v1.png"
+                                    class="float-right pr-2" />
+                            </a>
+                            <div class="collapse text-light p-3" id="health-label-collapse">
+                                <div class="desc p-3">
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="alcohol-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Alcohol-free</span>
+                                            <span class="mdesc">No alcohol used or contained</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="celery-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Celery-free</span>
+                                            <span class="mdesc">Does not contain celery or derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="crustacean-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Crustacean-free</span>
+                                            <span class="mdesc">Does not contain crustaceans (shrimp, lobster etc.) or
+                                                derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="dairy-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Dairy-free</span>
+                                            <span class="mdesc">No dairy; No lactose</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="egg-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Egg-free</span>
+                                            <span class="mdesc">No eggs or products containing eggs</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="fish-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Fish-free</span>
+                                            <span class="mdesc">No fish or fish derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="gluten-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Gluten-free</span>
+                                            <span class="mdesc">No ingredients containing gluten</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="keto-friendly">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Keto</span>
+                                            <span class="mdesc">Maximum 7 grams of net carbs per serving</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="kidney-friendly">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Kidney friendly</span>
+                                            <span class="mdesc">Per serving â€“ phosphorus less than 250 mg AND potassium
+                                                less
+                                                than 500 mg AND sodium: less than 500 mg</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="kosher">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Kosher</span>
+                                            <span class="mdesc">Contains only ingredients allowed by the kosher diet.
+                                                However it
+                                                does not guarantee kosher preparation of the ingredients
+                                                themselves</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="low-potassium">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Low potassium</span>
+                                            <span class="mdesc">Less than 150mg per serving</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="lupine-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Lupine-free</span>
+                                            <span class="mdesc">Does not contain lupine or derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="mustard-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Mustard-free</span>
+                                            <span class="mdesc">Does not contain mustard or derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="No-oil-added">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">No oil added</span>
+                                            <span class="mdesc">No oil added except to what is contained in the basic
+                                                ingredients</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="low-sugar">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">No-sugar</span>
+                                            <span class="mdesc">No simple sugars â€“ glucose, dextrose, galactose,
+                                                fructose,
+                                                sucrose, lactose, maltose</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="paleo">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Paleo</span>
+                                            <span class="mdesc">Excludes what are perceived to be agricultural products;
+                                                grains,
+                                                legumes, dairy products, potatoes, refined salt, refined sugar, and
+                                                processed
+                                                oils</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="peanut-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Peanut-free</span>
+                                            <span class="mdesc">No peanuts or products containing peanuts</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="pescatarian">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Pescatarian</span>
+                                            <span class="mdesc">Does not contain meat or meat based products, can
+                                                contain
+                                                dairy
+                                                and fish</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="pork-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Pork-free</span>
+                                            <span class="mdesc">Does not contain pork or derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="red-meat-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Red meat-free</span>
+                                            <span class="mdesc">Does not contain beef, lamb, pork, duck, goose, game,
+                                                horse,
+                                                and
+                                                other types of red meat or products containing red meat.</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="sesame-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Sesame-free</span>
+                                            <span class="mdesc">Does not contain sesame seed or derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="shellfish-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Shellfish-free</span>
+                                            <span class="mdesc">No shellfish or shellfish derivatives</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="soy-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Soy-free</span>
+                                            <span class="mdesc">No soy or products containing soy</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="sugar-conscious">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Sugar-conscious</span>
+                                            <span class="mdesc">Less than 4g of sugar per serving</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="tree-nut-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Tree-Nut-free</span>
+                                            <span class="mdesc">No tree nuts or products containing tree nuts</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="vegan">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Vegan</span>
+                                            <span class="mdesc">No meat, poultry, fish, dairy, eggs or honey</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="vegetarian">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Vegetarian</span>
+                                            <span class="mdesc">No meat, poultry, or fish</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="checkbox-button">
+                                            <input type="checkbox" class="healt checkbox-button__input"
+                                                name="health-checkbox" value="wheat-free">
+                                            <span class="checkbox-button__control"></span>
+                                            <span class="checkbox-button__label">Wheat-free</span>
+                                            <span class="mdesc">No wheat, can have gluten though</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-12 p-2">
+                        <div class="bg-success" style="border-radius: 20px;">
+                            <a class="w-100 btn btn-link text-light filter-btn font-weight-bold" data-toggle="collapse"
+                                data-target="#diet-label-collapse" aria-expanded="false"
+                                aria-controls="diet-label-collapse">
+                                <span class="float-left pl-2">Diet Labels</span>
+                                <img src="https://img.icons8.com/ios-filled/25/ffffff/expand-arrow--v1.png"
+                                    class="float-right pr-2" />
+                            </a>
+                            <div class="collapse text-light p-3" id="diet-label-collapse">
+                                <div class="desc p-3">
+                                    <div class="row">
+                                        <label class="radio-button">
+                                            <input type="radio" class="diet radio-button__input" name="diet-radio"
+                                                value="balanced">
+                                            <span class="radio-button__control"></span>
+                                            <span class="radio-button__label">Balanced</span>
+                                            <span class="mdesc">Protein/Fat/Carb values in 15/35/50 ratio</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-button">
+                                            <input type="radio" class="diet radio-button__input" name="diet-radio"
+                                                value="high-fiber">
+                                            <span class="radio-button__control"></span>
+                                            <span class="radio-button__label">High-Fiber</span>
+                                            <span class="mdesc">More than 5g fiber per serving</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-button">
+                                            <input type="radio" class="diet radio-button__input" name="diet-radio"
+                                                value="high-protein">
+                                            <span class="radio-button__control"></span>
+                                            <span class="radio-button__label">High-Protein</span>
+                                            <span class="mdesc">More than 50% of total calories from proteins</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-button">
+                                            <input type="radio" class="diet radio-button__input" name="diet-radio"
+                                                value="low-carb">
+                                            <span class="radio-button__control"></span>
+                                            <span class="radio-button__label">Low-Carb</span>
+                                            <span class="mdesc">Less than 20% of total calories from carbs</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-button">
+                                            <input type="radio" class="diet radio-button__input" name="diet-radio"
+                                                value="low-fat">
+                                            <span class="radio-button__control"></span>
+                                            <span class="radio-button__label">Low-Fat</span>
+                                            <span class="mdesc">Less than 15% of total calories from fat</span>
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-button">
+                                            <input type="radio" class="diet radio-button__input" name="diet-radio"
+                                                value="low-sodium">
+                                            <span class="radio-button__control"></span>
+                                            <span class="radio-button__label">Low-Sodium</span>
+                                            <span class="mdesc">Less than 140mg Na per serving</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-12 p-2">
+                        <div class="bg-danger" style="border-radius: 20px;">
+                            <a class="w-100 btn btn-link text-light health-labels-div font-weight-bold"
+                                data-toggle="collapse" data-target="#calories-collapse" aria-expanded="false"
+                                aria-controls="calories-collapse">
+                                <span class="float-left pl-2">Calories</span>
+                                <img src="https://img.icons8.com/ios-filled/25/ffffff/expand-arrow--v1.png"
+                                    class="float-right pr-2" />
+                            </a>
+                            <div class="collapse text-light p-3" id="calories-collapse">
+                                <p>Input maximum calories for serving</p>
+                                <input type="number" class="col-12 col-md-6 recipe-input p-2" name="kcal-input"
+                                    id="kcal-input"> Kcal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form><br>
+</div>
+
+{% endblock %}

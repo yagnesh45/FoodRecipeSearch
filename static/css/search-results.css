@@ -1,0 +1,56 @@
+body{
+    background-image: none;
+    background-color: lightgrey;
+}
+
+:root::-webkit-scrollbar{
+    width: 10px;
+}
+
+.container-fluid{
+    min-height: auto;
+    justify-content: initial;
+    align-items: initial;
+}
+
+.search-form{
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    transition-duration: 0.5s;
+    border-radius: 0 0 12px 12px;
+}
+
+.form-colored{
+    background-color: #161616;
+}
+
+.recipe-card{
+    border-radius: 10px;
+    border: 0;
+}
+
+.recipe-card .card-img-top{
+    border-radius: 10px 10px 0 0;
+}
+
+@media screen and (max-width: 1023px){
+    .search-form{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .btn-search-recipe{
+        margin-top: 0;
+        height: 100%;
+    }
+
+    .search-form{
+        position: static;
+    }
+
+    .card-img-top{
+        height: 250px;
+    }
+}

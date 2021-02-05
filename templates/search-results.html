@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search-results.css') }}">
+
+{% endblock %}
+
+{% block nav_list %}
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="#">Search</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content_body %}
+<div class="container">
+    <div class="search-results-div mt-2">
+        <h1> Search Results </h1>
+        {% if more %}
+        <div class="row">
+            {% set counter = 0 %}
+            {% for dish, ingredients, url, image in detail_of_dish %}
+            <div class="col-md-6 col-12 p-3">
+                <div class="recipe-card card shadow">
+                    <img class="card-img-top" height="350px" src={{ image }} alt="loading image"></img>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2> {{ dish }} </h2>
+                        </div>
+                        <div class="card-text">
+                            Link for complete recipe: <br>
+                            <a href={{ url }} target="_blank">{{ url }}</a>
+                        </div> <br>
+                        <h2 class="text-center"> Ingredients </h2>
+                        <div class="card card-body">
+                            {% for ingredient in ingredients %}
+                            •> {{ ingredient }} <br>
+                            {% endfor %}
+                        </div>
+                        <br>
+                        {% set query = dish.replace(" ","+") %}
+                        <div class="youtube-link text-center">
+                            <a class="text-light btn btn-danger" target="_blank"
+                                href="https://www.youtube.com/results?search_query={{ query }}">
+                                <img src="https://img.icons8.com/material-rounded/48/ffffff/youtube-play.png" />
+                                Watch Tutorials</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h1> Invalid Dish. <br> Or your entered filters are not possible. </h1>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
